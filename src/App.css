@@ -1,0 +1,16 @@
+body {
+  background-color: #4667A8;
+}
+.container {
+  max-width: 610px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}

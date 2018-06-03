@@ -1,0 +1,30 @@
+.details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    background-color: #eff0f4;
+}
+.company-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+.company-name {
+    font-weight: bold;
+}
+.details-container p {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
