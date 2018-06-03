@@ -33,16 +33,17 @@ class Traffic extends Component {
     }
 
     render() {
-        // console.log("Traffic this.props:", this.props);
-        // if(this.props.positionErrorMessage) {
-        //     return (
-        //         <div className="statusContainer">
-        //             <p>{ this.props.positionErrorMessage }</p>
-        //         </div>
-        //     )
-        // }
+        if(this.props.positionErrorMessage) {
+            return (
+                <div className="status-container">
+                    <p className="error-message">
+                        { this.props.positionErrorMessage }
+                    </p>
+                </div>
+            )
+        }
 
-        if (this.props.trafficList === 0 || this.props.isFetching) {
+        if (this.props.trafficList.length === 0 || this.props.isFetching) {
             return (
                 <div className="status-container">
                     <div className="spinner" />
@@ -52,6 +53,15 @@ class Traffic extends Component {
 
         return (
             <div>
+                <h1 className="h1">Air Traffic</h1>
+                <div className="cords-container">
+                    <span>lat</span>
+                    <span>{ this.props.position.latitude }</span>
+                </div>
+                <div className="cords-container mb15">
+                    <span>lng</span>
+                    <span>{ this.props.position.longitude }</span>
+                </div>
                 {
                     this.props.trafficList.map((item) => (
                         <TrafficItem key={item.Id} item={item}/>
@@ -65,6 +75,7 @@ class Traffic extends Component {
 const mapStateToProps = (state) => ({
     positionErrorMessage: state.position.message,
     position: state.position.coords,
+    isFetching: state.traffic.isFetching,
     trafficList: state.traffic.trafficList
 });
   

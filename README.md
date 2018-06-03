@@ -9,7 +9,7 @@ Inside of `/src/config.json` put your https://clearbit.com/ secret key, like thi
 }
 ```
 
-In the project directory, you can run:
+In the project root directory run:
 
 ```
 npm i
