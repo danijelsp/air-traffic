@@ -4,6 +4,10 @@ import React, {Component} from 'react';
 // import css
 import "./styles.css";
 
+// import clearbit sk
+import config from "../../config";
+const clearbit_sk = config.clearbit_sk;
+
 class Details extends Component {
     constructor(props) {
       super(props);
@@ -22,7 +26,7 @@ class Details extends Component {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer sk_e843b5fe30d66d072302a61123b34d16`
+                    'Authorization': `Bearer ${clearbit_sk}`
                 }
             });
             let data = await res.json();

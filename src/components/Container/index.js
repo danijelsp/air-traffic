@@ -17,8 +17,6 @@ import Details from "../Details";
 class Container extends Component {
 
     getPositionSuccess = (position) => {
-        // https://www.w3schools.com/Html/html5_geolocation.asp
-        // console.log("getPositionSuccess position: ", position);
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
         this.props.actions.setCoordinatesSuccess(lat, lng);
@@ -26,9 +24,6 @@ class Container extends Component {
     }
     
     getPositionError = (error) => {
-        // https://www.w3schools.com/Html/html5_geolocation.asp
-        // console.log("getPositionError error: ", error);
-
         let message = "";
 
         switch(error.code) {
@@ -49,11 +44,10 @@ class Container extends Component {
     }
 
     componentDidMount = () => {
-        // console.log("Container DidMount");
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(this.getPositionSuccess, this.getPositionError);
         } else {
-            this.props.setCoordinatesFailAction("Geolocation is not supported by this browser.");
+            this.props.actions.setCoordinatesError("Geolocation is not supported by this browser.");
         }
     }
 
